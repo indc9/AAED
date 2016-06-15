@@ -1,0 +1,26 @@
+DEFINICION:
+
+El tren tiene una secuencia de vagones de longitud arbitraria (n) donde n>0. Hay un vagón del tren que se denomina "activo" sobre el que puede actuar un robot. Si n=0 el tren no tiene vagones.
+
+OPERACIONES:
+
+Tren();
+	Postcondiciones: Crea y devuelve un tren vacio.
+void despIzq();
+	Precondiciones:	Hay un vagón a la derecha de la posición actual.
+	Postcondiciones: El tren se mueve una posicion a la izquierda, por lo que vagon activo es el vagón de la derecha 	al vagón actual.
+
+void despDer();
+	Precondiciones:	Hay un vagón a la izquierda de la posición actual.
+	Postcondiciones: El tren se mueve una posicion a la derecha, por lo que vagon activo es el vagón de la izquierda 	al vagón actual.
+			
+void eliminar();
+	Precondiciones: Existe vagon
+	Postcondiciones: Elimina vagon activo actual
+void insertar(const Vagon&)
+	Postcondiciones: Inserta vagon al final del tren
+Vagon comprobar() const
+	Postcondiciones: Devuelve el vagon activo
+bool vacio() const
+	Postcondiciones: Devuelve true si tren esta vacio
+	
