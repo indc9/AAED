@@ -127,7 +127,7 @@ inline Simbolo Simbolo::simetriaXY()
     return s;
 }
 
-Simbolo::~Simbolo(){}
+inline Simbolo::~Simbolo(){}
 
 
 #endif // SIMBOLO_H
