@@ -1,0 +1,37 @@
+DEFINICION:
+
+Un diccionario es una sucesion de elementos del mismo tipo en el que podemos introducir varias traducciones de cualquier palabra del ingles.
+Si el diccionario no contiene ninguna palabra se denomina diccionario vacio. 
+
+OPERACIONES:
+
+Diccionario()
+	post: Crea diccionario vacio
+void insertar(string español, string ingles)
+	post: Inserta traduccion español en la palabra inglesa, si no 	existe se crea.
+void eliminar(string español, string ingles)
+	post: elimina traduccion de palabra inglesa
+Lista<string>& consultar(string ingles)
+	pre: La palabra existe en el diccionario
+	post: Devuelve lista con todas las traducciones de la palabra 		inglesa
+~Diccionario()
+	post: Destruye diccionario
+
+Para representar este TAD utilizamos una lista enlazada con cabecera, utilizando estas operaciones:
+
+posicion primera() const
+posicion fin() const
+const T& elemento(posicion p) const
+T& elemento(posicion p)
+void insertar(const T& x, posicion p)
+posicion siguiente() const
+posicion buscar(const T& x) const
+void eliminar(posicion p)
+
+siendo la estructura privada de la representacion un nodo cabecera el cual apunta a la posicion siguiente:
+
+struct nodo{
+  T elto
+  nodo* sig
+  nodo(const T& e, nodo* p = 0): elto(e),sig(p){}
+};
