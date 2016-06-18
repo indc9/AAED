@@ -1,0 +1,20 @@
+DEFINICION
+
+El TAD Cocina representa un conjunto de muebles que se pueden colocar en una pared de una cocina. Una cocina se crea con una longitud positiva y un mueble colocado en la pared se identifica con el par formado por su posición y su anchura. La altura  y la profundidad no tienen interés, pues son iguales para todos los muebles.
+
+OPERACIONES
+
+Cocina()
+    Post: Crea una cocina vacía
+bool comprobar(const Mueble&, int pos) const
+    Post: Comprueba si un mueble cabe en una posición dada
+void añadir_mueble(const Mueble&, int pos)
+    Pre: Posición no está ocupada
+    Post: Se coloca mueble en la posición dada
+Mueble devolver(int pos) const
+    Post: Devuelve mueble de la posición dada
+void eliminar(int pos)
+    Post: Elimina mueble de la posición dada
+void mover_mueble(int pos)
+    Pre: No existe mueble en esa posición
+    Post: Mueve mueble hasta la posición dada
