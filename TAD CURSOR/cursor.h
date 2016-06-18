@@ -21,7 +21,7 @@ inline Cursor::Cursor(){}
 
 inline void Cursor::avanzar() const
 {
-    if(!p1.tope())
+    if(!p2.vacia())
     {
         p1.push(p2.tope());
         p2.pop();
@@ -39,7 +39,7 @@ inline void Cursor::retroceder() const
 
 inline void Cursor::fin() const
 {
-    while(!p1.tope())
+    while(!p2.vacia())
         avanzar();
 }
 
