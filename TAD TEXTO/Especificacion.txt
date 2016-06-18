@@ -1,11 +1,18 @@
 
 DEFINICION
 
-El TAD LÌnea de Texto representa un texto del cu·l desconocemos el n˙mero de lineas y de car·cteres por lÌnea, en el cu·l se pueden realizar una serie de operaciones de borrado de car·cteres y de lÌneas, pero en el texto no pueden aparecer car·cteres de control como fin de lÌnea, retorno de carro... Sin embargo, hay car·cteres especiales que pueden aparecer un n˙mero indeterminado de veces.
+El TAD L√≠nea de Texto representa un texto del cu√°l desconocemos el 
+n√∫mero de lineas y de car√°cteres por l√≠nea, en el cu√°l se pueden
+realizar una serie de operaciones de borrado de car√°cteres y de l√≠neas,
+pero en el texto no pueden aparecer car√°cteres de control como fin de 
+l√≠nea, retorno de carro... Sin embargo, hay car√°cteres especiales que
+pueden aparecer un n√∫mero indeterminado de veces.
 
 OPERACIONES
 	Lineadetexto()
 		Postcondiciones: Crea un texto vacio.
 	MostrarTexto()
-		Precondiciones: El caracter @ no puede aparecer al 		principio de ninguna lÌnea.
-		Postcondiciones: Muestra el texto completo sin importar el numero de car·cteres ni de lÌneas.
+		Precondiciones: El caracter @ no puede aparecer al
+				principio de ninguna l√≠nea.
+		Postcondiciones: Muestra el texto completo sin importar
+				el numero de car√°cteres ni de l√≠neas.
