@@ -12,7 +12,7 @@ private:
 inline MostrarTexto()
 {
 	typename Lista<Pila<char>>::posicion p = l.primera();
-	typename Pila<char>::posicion x = ;
+	typename Pila<char>::posicion x = l.elemento(p).tope();
 
 	Pila<char> p2;
 	bool encontrado = false;
