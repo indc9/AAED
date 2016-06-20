@@ -107,7 +107,6 @@ inline void Cartelera::eliminar_espectaculo(const Sala& s, int espect)
 inline void Cartelera::mostrar_sala()
 {
 	typename Lista<Sala>::posicion p = l.primera();
-	bool encontrado = false;
 
 	while(p != l.fin())
 	{
