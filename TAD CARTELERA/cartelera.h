@@ -127,7 +127,7 @@ inline void Cartelera::mostrar_espectaculo(const Sala& s)
 			encontrado_sala = true;
 			while(x != l.elemento(p).espectaculo.fin())
 			{
-			 	std::cout << l.elemento(p).espectaculo.elemento(x) << endl;
+			 	std::cout << l.elemento(p).espectaculo.elemento(x) << std::endl;
 
 			 	x = l.elemento(p).espectaculo.siguiente(x);
 			}			
