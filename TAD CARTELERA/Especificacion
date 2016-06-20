@@ -1,0 +1,22 @@
+DEFINCION:
+
+El TAD Cartelera representa una cartelera de espectaculos, con información relativa a los espectáculos ofrecidos al público por una serie de salas. Cada sala puede ofrecer varios espectáculos.
+
+OPERACIONES:
+
+Cartelera()
+    Post: Crea una cartelera vacia.
+void annadir_sala(const Sala& s);
+    Pre: No existe esa sala.
+    Post: Se añade la sala a la cartelera.
+void annadir_espectaculo(cosnt Sala& s, int espect);
+    Pre: No existe el espectáculo y existe la sala.
+    Post: Se añade espectáculo a la oferta de una sala existente.
+void eliminar_sala(const Sala& s);
+    Pre: Existe sala.
+    Post: Elimina sala.
+void eliminar_espectaculo(const Sala& s, int espect);
+    Pre: Existe sala y ofrece ese espectáculo.
+    Post: Elimina espectáculo de sala dada.
+~Cartelera();
+    Post: Elimina cartelera.
