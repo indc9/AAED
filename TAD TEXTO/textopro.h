@@ -19,25 +19,26 @@ inline MostrarTexto()
 
 	while(p != l.fin())
 	{
-		while(x != l.elemento(p).vacia())
+		while(x != l.elemento(p).vacia() & !encontrado)
 		{
-			if(l.elemento(p).tope() == '#' && !encontrado)
-			{
-				l.elemento(p).pop();
+			if(l.elemento(p).tope() == '#')
 				encontrado = true;
-			}
 			else 
 			{
 				if(l.elemento(p).tope() == '@' && !encontrado)
 				{
 					l.elemento(p).pop();
-					p2.push(l.elemento(p).tope());
+					if(l.elemento(p).tope() != l.elemento(p).vacia())
+					{
+						p2.push(l.elemento(p).tope());
+						l.elemento(p).pop();
+					}
 				}
 				else
 				{
 					p2.push(l.elemento(p).tope());
 					l.elemento(p).pop();
-				}
+				} 
 
 			}
 		}
@@ -48,7 +49,7 @@ inline MostrarTexto()
 
 			while(p != l.fin())
 			{
-				while(x != l.elemento(p).vacia())
+				while(!p2.vacia())
 				{
 					l.elemento(p).push(p2.tope());
 					p2.pop();
@@ -57,7 +58,7 @@ inline MostrarTexto()
 				std::endl;
 				p = l.siguiente(p);
 			}
-		}
+		}		
 		p = l.siguiente(p);		
 	}
 }
