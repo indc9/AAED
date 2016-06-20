@@ -1,4 +1,4 @@
-#include "lista_enla"
+#include "lista_enla.h"
 
 struct Sala{
 	Lista<int> espectaculo;	
