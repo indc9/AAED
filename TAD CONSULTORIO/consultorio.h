@@ -14,7 +14,7 @@ struct Paciente{
 class Consultorio{
 public:
 	Consultorio();
-	bool existe_med(const Medico& m);
+	bool existe_med(const Medico& m);	//Función auxiliar
 	void alta_medico(const Medico& m);
 	void annadir_paciente(const Paciente& paciente, const Medico& m);
 	Paciente turno_paciente(const Medico& m);
