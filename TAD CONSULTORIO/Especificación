@@ -1,6 +1,7 @@
 DEFINICIÓN:
 
-El TAD Consultorio representa un consultorio en el cuál trabajan una serie de médicos, los cuáles a su vez, tienen unos pacientes asignados a los que puede atender.
+El TAD Consultorio representa un consultorio en el cuál trabajan una serie de médicos, 
+los cuáles a su vez, tienen unos pacientes asignados a los que puede atender.
 
 OPERACIONES:
 
@@ -23,3 +24,5 @@ bool cola_pacientes(const Medico& m)
     Post: Devuelve true si hay pacientes esperando en la cola.
 ~Consultorio() 	//Aunque no lo pide
     Post: Elimina el consultorio 
+    
+Obviamos el apartado B.
