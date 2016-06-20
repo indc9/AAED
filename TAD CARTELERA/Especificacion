@@ -1,6 +1,7 @@
-DEFINCION:
+DEFINICIÓN:
 
-El TAD Cartelera representa una cartelera de espectaculos, con información relativa a los espectáculos ofrecidos al público por una serie de salas. Cada sala puede ofrecer varios espectáculos.
+El TAD Cartelera representa una cartelera de espectaculos, con información relativa a los espectáculos ofrecidos al público
+por una serie de salas. Cada sala puede ofrecer varios espectáculos.
 
 OPERACIONES:
 
