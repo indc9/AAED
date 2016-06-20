@@ -26,3 +26,6 @@ void mostrar_espectaculo(const Sala& s)
     Post: Muestra lista de espectáculos en la sala dada.
 ~Cartelera();
     Post: Elimina cartelera.
+    
+    
+El apartado b) lo obviamos.
