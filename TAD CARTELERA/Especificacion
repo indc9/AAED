@@ -18,5 +18,10 @@ void eliminar_sala(const Sala& s);
 void eliminar_espectaculo(const Sala& s, int espect);
     Pre: Existe sala y ofrece ese espectáculo.
     Post: Elimina espectáculo de sala dada.
+void mostrar_sala()
+    Post: Muestra lista de salas en la cartelera. Vacía si no hay salas.
+void mostrar_espectaculo(const Sala& s)
+    Pre: Existe sala.
+    Post: Muestra lista de espectáculos en la sala dada.
 ~Cartelera();
     Post: Elimina cartelera.
