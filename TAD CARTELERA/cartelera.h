@@ -12,6 +12,8 @@ public:
 	void annadir_espectaculo(cosnt Sala& s, int espect);
 	void eliminar_sala(const Sala& s);
 	void eliminar_espectaculo(const Sala& s, int espect);
+	void mostrar_sala();	//Lo mostramos sin ordenar
+	void mostrar_espectaculo(const Sala& s);	//Lo mostramos sin ordenar
 	~Cartelera();
 private:	
 	Lista<sala> l;	
@@ -21,7 +23,7 @@ inline Cartelera::Cartelera(){}
 
 inline void Cartelera::annadir_sala(const Sala& s)
 {
-	typename Lista<Lista<int>>::posicion p = l.primera();
+	typename Lista<Sala>::posicion p = l.primera();
 	bool encontrado = false;
 
 	while(p != l.fin())
@@ -100,6 +102,39 @@ inline void Cartelera::eliminar_espectaculo(const Sala& s, int espect)
 		}
 		p = l.elemento(p).espectaculo.siguiente(p);
 	}
+}
+
+inline void Cartelera::mostrar_sala()
+{
+	typename Lista<Sala>::posicion p = l.primera();
+	bool encontrado = false;
+
+	while(p != l.fin())
+	{
+		std::cout << l.elemento(p).sala << std::endl;
+	}
+}
+
+inline void Cartelera::mostrar_espectaculo(const Sala& s)
+{
+	typename Lista<Sala>::posicion p = l.primera();
+	typename Lista<int>::posicion x = l.elemento(p).espectaculo.primera();
+	bool encontrado_sala = false;
+
+	while(p != l.fin())
+	{
+		if(l.elemento(p).sala == s.sala && !encontrado_sala)
+		{
+			encontrado_sala = true;
+			while(x != l.elemento(p).espectaculo.fin())
+			{
+			 	std::cout << l.elemento(p).espectaculo.elemento(x) << endl;
+
+			 	x = l.elemento(p).espectaculo.siguiente(x);
+			}			
+		}
+		p = l.elemento(p).siguiente(p);
+	}	
 }
 
 inline Cartelera::~Cartelera(){}
