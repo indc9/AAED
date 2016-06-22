@@ -10,7 +10,7 @@ public:
 	void añadir_espectaculo(const Sala& s, int espect);
 	void eliminar_sala(const Sala& s);
 	void eliminar_espectaculo(const Sala& s, int espect);
-	void mostrar_salas(const Sala& s) const;
+	void mostrar_salas() const;
 	void mostrar_espectaculos(const Sala& s) const;
 private:
 	Lista<Sala> l;
@@ -38,12 +38,13 @@ inline bool Cartelera::existe_sala(const Sala& s)
 inline bool Cartelera::existe_espectaculo(const Sala& s, int espect)
 {
 	bool encontrado = false;
-	typename Lista<Sala>::posicion p;
-	typename Lista<int>::posicion x = l.elemento(p).lis.buscar(espect);
+	typename Lista<Sala>::posicion p;	
+	typename Lista<int>::posicion x;
 
 	if(existe_sala(s))
 	{
 		p = l.buscar(s) //buscamos la posicion de la sala en nuestra cartelera
+		x = l.elemento(p).lis.buscar(espect);
 
 		if(x != l.elemento(p).lis.fin()){	//si encuentra el espectaculo en la sala s entra en el if
 			encontrado = true;
@@ -106,14 +107,14 @@ inline void Cartelera::mostrar_salas() const
 	while(p != l.fin())
 	{
 		std::cout << l.elemento(p).cod_sala << std::endl;
-		l.siguiente(p);
+		p = l.siguiente(p);
 	}
 }
 
 inline void Cartelera::mostrar_espectaculos(const Sala& s)
 {
 	typename Lista<Sala>::posicion p = l.primera();
-	typename Lista<int>::posicion x = l.elimento(p).lis.primera();
+	typename Lista<int>::posicion x = l.elemento(p).lis.primera();
 
 	while(p != l.fin())
 	{
@@ -121,7 +122,7 @@ inline void Cartelera::mostrar_espectaculos(const Sala& s)
 		{
 			std::cout << l.elemento(p).lis.elemento(x) << std::endl;
 
-			x = l.elemento(p).lis.siguiente(p);
+			x = l.elemento(p).lis.siguiente(x);
 		}
 		p = l.siguiente(p);
 	}
