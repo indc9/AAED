@@ -23,7 +23,7 @@ public:
 	~Consultorio();
 private:
 	Lista<Medico> l;
-	typename Lista<Medico>::posicion pos_med = -1;
+	typename Lista<Medico>::posicion pos_med = -1;	//Contiente la posicion del médico actual
 };
 
 
