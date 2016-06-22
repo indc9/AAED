@@ -14,89 +14,57 @@ public:
 	void mostrar_espectaculos(const Sala& s) const;
 private:
 	Lista<Sala> l;
-	bool existe_sala(const Sala& s);
-	bool existe_espectaculo(const Sala& s, int espect);
 };
+
+bool operator ==(const Sala& s1, const Sala& s2)	//sobrecargamos el operador para utilizar buscar() sin problemas
+{
+	return (s1.cod_sala == s2.cod_sala);
+}
+
 
 inline Cartelera::Cartelera(){}
 
-inline bool Cartelera::existe_sala(const Sala& s)
-{
-	bool encontrado = false;
-	typename Lista<Sala>::posicion p = l.primera();
-
-	while(p != l.fin())
-	{
-		if(l.elemento(p).cod_sala == s.cod_sala && !encontrado)
-			encontrado = true;			
-		
-		p = l.siguiente(p);
-	}
-	return encontrado;
-}
-
-inline bool Cartelera::existe_espectaculo(const Sala& s, int espect)
-{
-	bool encontrado = false;
-	typename Lista<Sala>::posicion p;	
-	typename Lista<int>::posicion x;
-
-	if(existe_sala(s))
-	{
-		p = l.buscar(s) //buscamos la posicion de la sala en nuestra cartelera
-		x = l.elemento(p).lis.buscar(espect);
-
-		if(x != l.elemento(p).lis.fin()){	//si encuentra el espectaculo en la sala s entra en el if
-			encontrado = true;
-		else
-			encontrado = false;
-		}
-	}
-
-	return encontrado;
-}
 
 inline void Cartelera::añadir_sala(const Sala& s)
 {
-	if(!existe_sala)
+	typename Lista<Sala>::posicion p = l.buscar(s);
+
+	if(p == l.fin())
 		l.insertar(s, l.fin());
 }
 
 inline void Cartelera::añadir_espectaculo(const Sala& s, int espect)
 {
-	typename Lista<Sala>::posicion p;
+	typename Lista<Sala>::posicion p = l.buscar(s);
 
-	if(!existe_espectaculo(s,espect))
+	if(p != l.fin())
 	{
-		p = l.buscar(s);
-		l.elemento(p).lis.insertar(espect, l.elemento(p).lis.fin());
+		typename Lista<int>::posicion x = l.elemento(p).lis.buscar(espect);
+
+		if(x == l.elemento(p).lis.fin())
+			l.elemento(p).lis.insertar(espect, l.elemento(p).lis.fin());
 	}
+	
 }
 
 inline void Cartelera::eliminar_sala(const Sala& s)
 {
-	typename Lista<Sala>::posicion p;
+	typename Lista<Sala>::posicion p = l.buscar(s);
 
-	if(existe_sala(s))
-	{
-		p = l.buscar(s);
+	if(p != l.fin())
 		l.eliminar(p);
-	}
 }
 
 inline void Cartelera::eliminar_espectaculo(const Sala& s, int espect)
 {
-	typename Lista<Sala>::posicion p;
-	typename Lista<int>::posicion x;
+	typename Lista<Sala>::posicion p = l.buscar(s);
 
-	if(existe_sala(s))
+	if(p != l.fin())
 	{
-		if(existe_espectaculo(s,espect))
-		{
-			p = l.buscar(s);
-			x = l.elemento(p).lis.buscar(espect);
+		typename Lista<int>::posicion x = l.elemento(p).lis.buscar(espect);
+
+		if(x != l.elemento(p).lis.fin())
 			l.elemento(p).lis.eliminar(x);
-		}
 	}
 }
 
