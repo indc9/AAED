@@ -1,0 +1,42 @@
+DEFINICIÓN:
+
+
+
+El TAD Consultorio representa un consultorio en el cuál trabajan una serie de médicos, los cuáles a su vez, tienen unos pacientes asignados a los que puede atender en orden de llegada.
+
+
+
+OPERACIONES:
+
+
+
+Consultorio()
+    
+    Post: Crea un consultorio vacío.
+
+void alta_medico(const Medico& m)
+   
+    Pre: Existe medico en el consultorio.
+ 
+    Post: Da de alta al médico en el consultorio.
+
+void annadir_paciente(Medico& m, const Paciente& paciente)
+
+    Post: Pone en la cola de espera al paciente asignado a un médico.
+Paciente turno_paciente(const Medico& m) const
+ 
+    Pre: Existe médico.
+    
+    Post: Devuelve el paciente que le toque su turno.
+
+void atender_paciente(Medico& m)
+   
+    Pre: Existe médico.
+  
+    Post: El médico atiende al paciente que le toca, eliminándose éste      de la cola.
+
+bool cola_vacia(const Medico& m) const
+  
+    Post: Devuelve true si hay pacientes esperando en la cola.
+
+
