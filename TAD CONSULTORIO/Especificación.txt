@@ -1,42 +1,26 @@
-DEFINICI”N:
+DEFINICI√ìN:
 
-
-
-El TAD Consultorio representa un consultorio en el cu·l trabajan una serie de mÈdicos, los cu·les a su vez, tienen unos pacientes asignados a los que puede atender en orden de llegada.
-
-
+El TAD Consultorio representa un consultorio en el cu√°l trabajan una 
+serie de m√©dicos, los cu√°les a su vez, tienen unos pacientes asignados
+a los que puede atender en orden de llegada.
 
 OPERACIONES:
 
-
-
 Consultorio()
-    
-    Post: Crea un consultorio vacÌo.
-
+    Post: Crea un consultorio vac√≠o.
 void alta_medico(const Medico& m)
-   
     Pre: Existe medico en el consultorio.
- 
-    Post: Da de alta al mÈdico en el consultorio.
-
+    Post: Da de alta al m√©dico en el consultorio.
 void annadir_paciente(Medico& m, const Paciente& paciente)
-
-    Post: Pone en la cola de espera al paciente asignado a un mÈdico.
+    Post: Pone en la cola de espera al paciente asignado al m√©dico.
 Paciente turno_paciente(const Medico& m) const
- 
-    Pre: Existe mÈdico.
-    
+    Pre: Existe m√©dico.
     Post: Devuelve el paciente que le toque su turno.
-
 void atender_paciente(Medico& m)
-   
-    Pre: Existe mÈdico.
-  
-    Post: El mÈdico atiende al paciente que le toca, elimin·ndose Èste      de la cola.
-
+    Pre: Existe m√©dico.
+    Post: El m√©dico atiende al paciente que le toca, elimin√°ndose √©ste
+    de la cola.
 bool cola_vacia(const Medico& m) const
-  
     Post: Devuelve true si hay pacientes esperando en la cola.
 
 
