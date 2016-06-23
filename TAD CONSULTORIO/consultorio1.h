@@ -1,3 +1,6 @@
+#ifndef CONSULTORIO_1_H
+#define CONSULTORIO_1_H
+
 #include "lista_enla.h"
 #include "cola_enla.h"
 
@@ -14,23 +17,18 @@ class Consultorio{
 public:
 	Consultorio();
 	void alta_medico(const Medico& m);
-	void añadir_paciente(const Medico& m, const Paciente& p);
-	Paciente& turno_paciente(const Medico& m) const;
-	void atender_paciente(const Medico& m);
+	void añadir_paciente(Medico& m, const Paciente& p);
+	Paciente turno_paciente(const Medico& m) const;
+	void atender_paciente(Medico& m);
 	bool cola_vacia(const Medico& m) const;
 private:
 	Lista<Medico> l;
 };
 
-//Sobrecargamos el operador de comparacion  y diferencia para poder comparar 2 medicos
+//Sobrecargamos el operador de comparacion para poder comparar 2 medicos
 bool operator ==(const Medico& m1, const Medico& m2)
 {
 	return (m1.cod_mec == m2.cod_mec);
-}
-
-bool operator !=(const Medico& m1, const Medico& m2)
-{
-	return (m1.cod_mec != m2.cod_mec);
 }
 
 inline Consultorio::Consultorio(){}
@@ -43,45 +41,43 @@ inline void Consultorio::alta_medico(const Medico& m)
 		l.insertar(m, l.fin());
 }
 
-inline void Consultorio::añadir_paciente(const Medico& m, const Paciente& p)
+inline void Consultorio::añadir_paciente(Medico& m, const Paciente& p)
 {
-	typename Lista<Medico>::posicion p = l.buscar(m);
+	typename Lista<Medico>::posicion p1 = l.buscar(m);
 
-	if(p != l.fin())
-		l.elemento(p).pac.push(p);	
+	if(p1 != l.fin())
+		m.pac.push(p);	
 }
 
-inline Paciente& Consultorio::turno_paciente(const Medico& m) const
+inline Paciente Consultorio::turno_paciente(const Medico& m) const
 {
 	typename Lista<Medico>::posicion p = l.buscar(m);
 
 	if(p != l.fin())
 	{
-		if(!l.elemento(p).pac.vacia())
-			return l.elemento(p).pac.frente();
+		if(!m.pac.vacia())
+			return m.pac.frente();
 	}
 }
 
-inline void Consultorio::atender_paciente(const Medico& m)
+inline void Consultorio::atender_paciente(Medico& m)
 {
 	typename Lista<Medico>::posicion p = l.buscar(m);
 
 	if(p != l.fin())
 	{
-		if(!l.elemento(p).pac.vacia())
-			l.elemento(p).pac.pop();
+		if(!m.pac.vacia())
+			m.pac.pop();
 	}
 }
 
 inline bool Consultorio::cola_vacia(const Medico& m) const
 {
 	typename Lista<Medico>::posicion p = l.buscar(m);
-	bool encontrado = false;
 
 	if(p != l.fin())
-	{
-		if(!l.elemento(p).pac.vacia())
-			encontrado = true;
-	}
-	return encontrado;
+		return(!m.pac.vacia());
+
 }
+
+#endif //CONSULTORIO_1_H
